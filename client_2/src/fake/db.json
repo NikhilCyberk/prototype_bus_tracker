@@ -1,0 +1,87 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "driver1",
+      "password": "driver123",
+      "role": "driver",
+      "name": "John Driver"
+    },
+    {
+      "id": 2,
+      "username": "driver2",
+      "password": "driver456",
+      "role": "driver",
+      "name": "Sarah Wheeler"
+    },
+    {
+      "id": 3,
+      "username": "passenger1",
+      "password": "passenger123",
+      "role": "passenger",
+      "name": "Alex Rider"
+    }
+  ],
+  "routes": [
+    {
+      "id": 1,
+      "routeNumber": "101",
+      "name": "Downtown Express",
+      "color": "#FF5733",
+      "description": "Connects downtown with the main business district",
+      "status": "active",
+      "path": [
+        { "latitude": 37.7749, "longitude": -122.4194 },
+        { "latitude": 37.775, "longitude": -122.418 }
+      ]
+    }
+  ],
+  "stops": [
+    {
+      "id": 1,
+      "routeId": 1,
+      "name": "Downtown Terminal",
+      "order": 1,
+      "latitude": 37.7749,
+      "longitude": -122.4194,
+      "amenities": ["seating", "shelter"]
+    }
+  ],
+  "buses": [
+    {
+      "id": 1,
+      "busNumber": "B101",
+      "routeId": 1,
+      "driverId": 1,
+      "status": "on-route",
+      "latitude": 37.7751,
+      "longitude": -122.4175,
+      "lastUpdated": "2023-05-15T12:00:00Z",
+      "capacity": 50,
+      "currentPassengers": 32
+    }
+  ],
+  "arrivals": [
+    {
+      "stopId": 1,
+      "predictions": [
+        {
+          "busId": 1,
+          "busNumber": "B101",
+          "estimatedTime": 1686750000,
+          "status": "on-time"
+        }
+      ]
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "type": "delay",
+      "routeId": 1,
+      "message": "Route 101 delayed",
+      "timestamp": "2023-05-15T12:00:00Z",
+      "isActive": true
+    }
+  ]
+}
