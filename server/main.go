@@ -42,14 +42,14 @@ func main() {
 
 	// Initialize services
 	authService := services.NewAuthService(db)
-	// mapsService := services.NewMapsService(cfg.MapsAPIKey)
+	mapsService := services.NewMapsService(cfg.MapsAPIKey)
 
 	// Initialize handlers
 	authHandler := handlers.NewAuthHandler(authService)
 	wsHandler := handlers.NewWebSocketHandler()
-	busHandler := handlers.NewBusHandler(db, wsHandler.Broadcast)
-	routeHandler := handlers.NewRouteHandler(db)
-	stopHandler := handlers.NewStopHandler(db)
+	busHandler := handlers.NewBusHandler(db, wsHandler.Broadcast, mapsService)
+	routeHandler := handlers.NewRouteHandler(db, mapsService)
+	stopHandler := handlers.NewStopHandler(db, mapsService)
 
 	// Start WebSocket broadcaster
 	go wsHandler.BroadcastMessages()
